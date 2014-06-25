@@ -5,7 +5,6 @@ import (
 	//"strconv"
 )
 
-//
 type Graph struct {
 	g      []gvector
 	length int
@@ -50,6 +49,7 @@ func (g *Graph) Egde(a int, b int, v interface{}) {
 	return
 }
 
+// 无视吧！这里只是为了应付某些人在外面使用 fmt.Print
 func (g *Graph) String() (res string) {
 	for k, v := range g.g {
 		if len(v) > 0 {
@@ -62,16 +62,20 @@ func (g *Graph) String() (res string) {
 	return
 }
 
+// 求(a,b)两点之间的最短路径
+// 根据提供的图自动选择最优的算法
 func (g *Graph) ShortesPath(int a, int b) int64 {
-
+	return g.SPFA(a, b)
 }
 
+// 利用SPFA算法求(a,b)两点之间的最短路径
 func (g *Graph) SPFA(int a, int b) int64 {
 	var q []int
 	var l, r int
 
 }
 
+// Floyed算法，貌似暂时没用
 func (g *Graph) Floyed() (res string) {
 	return
 }
@@ -79,8 +83,6 @@ func (g *Graph) Floyed() (res string) {
 //	下面基本数据结构的模板
 type queue_int struct {
 	v []int
-	l int
-	r int
 }
 
 func (q *queue_int) Push() {
